@@ -7,8 +7,8 @@ class Customer(models.Model):
     name = models.CharField(max_length=120, unique=True)
     image = models.ImageField(blank=True, default='/no_profile_image.jpg')
     password = models.CharField(max_length=8, unique=True)
-    order = models.ForeignKey('Order', on_delete=models.CASCADE, blank=True, null=True)
-    wishlist = models.ForeignKey("WishList", on_delete=models.CASCADE, blank=True, null=True)
+    order = models.ManyToManyField('Order')
+    wishlist = models.ManyToManyField("WishList")
 
     def __str__(self):
         return f'{self.name}'
