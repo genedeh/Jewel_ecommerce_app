@@ -20,7 +20,7 @@ class Jewelry(models.Model):
     stock_count = models.IntegerField()
     slug = models.SlugField(default=name.name)
     price = models.FloatField(help_text='Currency in naira')
-    star = models.FloatField()
+    star = models.SmallIntegerField()
 
     def __str__(self):
         return f'{self.name}'
