@@ -1,81 +1,70 @@
 {% extends 'base.html' %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Document{% endblock title %}</title>
 </head>
-<body>
-{% block content %}
-<br>
-<nav class="navbar navbar-expand-lg bg-warning border-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand font-weight-bolder text-dark" href="{% url 'Product:home' %}" style="font-size:4ch;">REMI'S 💎 JEWELS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">🛒</span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <br>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                {% for jewelry_type in jewelry_types %}
-                    <li class="nav-item">
-                      <a class="nav-link text-dark text-uppercase" href="" style="font-size:2.5ch">{{jewelry_type.name}}</a>
-                {% endfor %}
-            </ul>
-                <a href="" class="btn btn-dark text-warning mbt-3">Login</a>
-                <b class="m-3"></b>
-                <a href="" class="btn btn-dark text-warning mbt-3">Sign up</a>
-        </div>
-    </div>
-</nav>
 
-<br>
-<hr>
-<div>
-{% for jewelry in jewelries %}
-     {% if jewelry.star >= 7 %}
-         <div class="card-body align-start">
-             <h5 class="card-title text-uppercase text-center text-dark" style="font-size: xx-large;">{{jewelry.name}}</h5>
-             <hr  style="color: black;">
-              <img src="media/{{jewelry.image}}" class="card-img bg-dark" alt="{{ava.name}}" width="10" height="590">
-             <br>
-             <hr>
-             <b class="card-text text-center" style="color: black;">Description: {{jewelry.description}}</b>
-             <hr style="color: black;">
-             <b class="card-text" style="color: black;">Stock: {{jewelry.stock_count}}</b>
-             <hr style="color: black;">
-             <b class="card-text" style="color: black;">Price: {{jewelry.price}}</b>
-             <hr style="color: black;">
-             <b class="card-text" style="color: black;">Star: {{jewelry.star}}</b>
-             <hr style="color: black;">
-     {% else %}
-        <div class="row align-center">
-           <b class="text-warning text-center" style="font-size:xx-large;">💎</b>
-           <hr class="text-dark">
-          <div class="card m-3 text-primary bg-warning shadow-lg p-3 rounded col-sm" style="max-width: 540px;"
-            id="{{jewelry.name}}">
-           <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="media/{{jewelry.image}}" class="card-img img-thumbnail bg-dark" alt="{{jewelry.name}}">
-             </div>
-            <div class="col-md-7">
-                <div class="card-body">
-                    <h5 class="card-title text-dark text-uppercase text-center"><a href="http://" class="text-dark">{{jewelry.name}}</a></h5>
-                    <p class="card-text text-center text-dark">Description: {{jewelry.description}}</p>
-                    <p class="card-text"><small class="text-dark text-center">Stock: {{jewelry.stock_count}}</small></p>
-                    <p class="card-text"><small class="text-dark text-uppercase text-center">Price :
-                        ${{jewelry.price}}</small></p>
-                    <p class="card-text"><small class="text-dark text-uppercase text-center">jewelry_type :
-                        {{jewelry.jewelry_type}}</small></p>
+<body>
+    {% block content %}
+    <br>
+    <nav class="navbar navbar-expand-lg bg-dark border-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand font-weight-bolder text-light" href="{% url 'Product:home' %}"
+                style="font-size:4ch;">REMI'S 💎 JEWELS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">🛒</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <br>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% for jewelry_type in jewelry_types %}
+                    <li class="nav-item">
+                        <a class="nav-link text-light text-uppercase" href=""
+                            style="font-size:2.5ch">{{jewelry_type.name}}</a>
+                        {% endfor %}
+                </ul>
+                <a href="" class="text-light btn btn-warning">Log in</a>
+                <b class="m-3"></b>
+                <a href="" class="text-light btn btn-warning">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+    <div class="layout_padding gallery_section">
+        <div class="container">
+            <div class="row">
+                {% for jewelry in jewelries %}
+                <div class="col-sm-4">
+                    <div class="best_shoes">
+                        <p class="best_text">{{jewelry.name}}</p>
+                        <div class="shoes_icon"><img src="media/{{jewelry.image}}"></div>
+                        <div class="star_text">
+                            <div class="left_part">
+                                <ul>
+                                    <li>
+                                        <strong class="text-light fs-4">{{jewelry.star}}</strong><img
+                                            src="media/star-icon.png" width="20" height="20">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="right_part">
+                                <div class="shoes_price">$<span style="color: #ff4e5b;">{{jewelry.price}}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="buy_now_bt mb-3">
+                    <button class="buy_text"><a href="/Jewelry.html">See more</a></button>
                 </div>
             </div>
         </div>
-
-</div>
-</div>
-     {% endif %}
-{% endfor %}
-<hr>
-{% endblock content %}
+    </div>
+    {% endblock content %}
 </body>
+
 </html>
