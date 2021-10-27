@@ -25,7 +25,7 @@
                 {% for jewelry in jewelries %}
                 <div class="col-sm-4">
                     <div class="best_shoes border shadow-lg">
-                        <p class="best_text">{{jewelry.name}}</p>
+                        <a class="best_text" href="{{jewelry.get_absolute_url}}">{{jewelry.name}}</a>
                         <div class="shoes_icon"><img src="/media/{{jewelry.image}}" width="150" height="150"></div>
                         <div class="star_text">
                             <div class="left_part">

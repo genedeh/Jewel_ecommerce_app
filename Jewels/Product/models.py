@@ -30,3 +30,6 @@ class Jewelry(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+    def get_absolute_url(self):
+        return reverse('Product:jewelry', kwargs={'jewelry_type': self.jewelry_type, 'slug': self.slug})
