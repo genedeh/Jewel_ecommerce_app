@@ -28,3 +28,8 @@ def jewelry_view(request):
 class JewelryTypeDetailView(DetailView):
     model = Jewelry_type
     template_name = 'Jewelry_Type_detail_page.html'
+
+
+class JewelryDetailView(DetailView):
+    model = Jewelry
+    template_name = 'Jewelry_detail_page.html'
