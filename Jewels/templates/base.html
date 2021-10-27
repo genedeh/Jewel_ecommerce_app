@@ -6,10 +6,39 @@
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <!-- jquery -->
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
 </head>
+<style>
+
+</style>
 <body style="background-color:#FFD700">
+    <nav class="navbar navbar-expand-lg bg-dark border-dark">
+
+        <div class="container-fluid">
+            <a class="navbar-brand font-weight-bolder text-light" href="{% url 'Product:home' %}"
+                style="font-size:4ch;">REMI'S 💎 JEWELS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">🛒</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <br>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% for jewelry_type in jewelry_types %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-uppercase" href="{{jewelry_type.get_absolute_url}}"
+                            style="font-size:2.5ch">{{jewelry_type.name}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <a href="" class="text-light btn btn-warning">Log in</a>
+                <b class="m-3"></b>
+                <a href="" class="text-light btn btn-warning">Sign Up</a>
+            </div>
+        </div>
+    </nav>
 {% block content %}{% endblock content %}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>

@@ -8,30 +8,53 @@
 
 <body>
     {% block content %}
-    <nav class="navbar navbar-expand-lg bg-dark border-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand font-weight-bolder text-light" href="{% url 'Product:home' %}"
-                style="font-size:4ch;">REMI'S 💎 JEWELS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">🛒</span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <br>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    {% for jewelry_type in jewelry_types %}
-                    <li class="nav-item">
-                        <a class="nav-link text-light text-uppercase" href=""
-                            style="font-size:2.5ch">{{jewelry_type.name}}</a>
-                        {% endfor %}
-                </ul>
-                <a href="" class="text-light btn btn-warning">Log in</a>
-                <b class="m-3"></b>
-                <a href="" class="text-light btn btn-warning">Sign Up</a>
+    <br>
+    <div class="container">
+        <h1 class="new_text"><strong>New Collection</strong></h1>
+        <p class="consectetur_text">We got some of the latest fashion blockBuster Jewelries in town and will fit
+            with anything.</p>
+        <div class="collection_section_2">
+            <div class="row">
+                {% for jt in jewelry_types %}
+                <div class="col-md-6">
+                    <div class="about-img">
+                        <button class="new_bt">New</button>
+                        <div class="shoes-img"><img src="media/{{jt.picture}}" width="200" height="100"></div>
+                        <p class="sport_text">{{jt.name}}</p>
+                        <div class="dolar_text"><strong class="shadow-lg text-light">{{jt.description}}.</strong> </div>
+                        <div class="star_icon">
+                            <ul>
+                                <li>
+                                    <a href="#"><img src="media/star-icon.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="media/star-icon.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="media/star-icon.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="media/star-icon.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="media/star-icon.png"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
-    </nav>
+    </div>
+    </div>
+    <hr>
+    <div class="collection_section">
+        <hr>
+        <h1 class="new_text"><strong>Cute Jewelry</strong></h1>
+        <p class="consectetur_text">We got the worlds cutest Jewelry even cuter than a puppy also 10&times; more
+            cuter than a kitten, so what are you waiting for. </p>
+    </div>
     <div class="layout_padding gallery_section">
         <div class="container">
             <div class="row">
@@ -39,7 +62,7 @@
                 <div class="col-sm-4">
                     <div class="best_shoes">
                         <p class="best_text">{{jewelry.name}}</p>
-                        <div class="shoes_icon"><img src="media/{{jewelry.image}}"></div>
+                        <div class="shoes_icon"><img src="media/{{jewelry.image}}" width="200" height="200"></div>
                         <div class="star_text">
                             <div class="left_part">
                                 <ul>

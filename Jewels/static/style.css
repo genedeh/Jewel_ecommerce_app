@@ -431,12 +431,13 @@ body {
 .collection_section_2 {
     width: 100%;
     float: left;
+    margin: 10px;
 }
 
 .about-img {
     width: 100%;
     float: left;
-    background-color: black;
+    background-color: gold;
     height: auto;
     margin-left: 64px;
     box-shadow: 0px 0px 10px 0px;
@@ -447,10 +448,10 @@ body {
 .new_bt {
     width: 18%;
     float: left;
-    background-color: gold;
+    background-color: black;
     font-size: 14pt;
     text-align: center;
-    color: black;
+    color: gold;
     height: 50px;
     margin-left: -60px;
 }
@@ -469,9 +470,10 @@ body {
     text-align: center;
     padding-top: 30px;
     font-size: 16pt;
-    color: gold;
+    color: white;
     border-bottom: 1px solid#000;
     margin: 0 auto;
+    text-shadow: white;
 }
 
 .dolar_text {
@@ -479,6 +481,7 @@ body {
     float: left;
     text-align: center;
     font-size: 20pt;
+    text-shadow: white;
 }
 
 .star_icon {

@@ -2,6 +2,9 @@ from django.db import models
 
 
 # Create your models here.
+from django.urls import reverse
+
+
 class Jewelry_type(models.Model):
     name = models.CharField(max_length=200, unique=True)
     picture = models.ImageField(default='/No product image.png')
@@ -9,6 +12,9 @@ class Jewelry_type(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+    def get_absolute_url(self):
+        return reverse('Product:jewelry_detail', kwargs={'pk': self.pk})
 
 
 class Jewelry(models.Model):
