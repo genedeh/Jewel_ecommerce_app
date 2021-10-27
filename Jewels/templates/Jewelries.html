@@ -1,10 +1,56 @@
 {% extends 'base.html' %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock title %}</title>
+    <title>{% block title %}Jewelries{% endblock title %}</title>
 </head>
+
 <body>
-{% block content %}{% endblock content %}
+    {% block content %}
+    <div class="layout_padding gallery_section">
+        <div class="container">
+            <div class="row">
+                <hr>
+                <div class="collection_text fw-bolder">Shoes</div>
+                <hr>
+                <div class="collection_section layout_padding border"
+                    style="background-color: white;border-color: black;border-radius: 90px;">
+                    <div class="container">
+                        <h1 class="new_text"><strong>New Arrivals Products</strong></h1>
+                        <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                    </div>
+                </div>
+                {% for jewelry in jewelries %}
+                <div class="col-sm-4">
+                    <div class="best_shoes border shadow-lg">
+                        <p class="best_text">{{jewelry.name}}</p>
+                        <div class="shoes_icon"><img src="/media/{{jewelry.image}}" width="150" height="150"></div>
+                        <div class="star_text">
+                            <div class="left_part">
+                                <ul>
+                                    <li>
+                                        <strong class="text-light fs-4">{{jewelry.star}}</strong><img
+                                            src="/media/star-icon.png" width="20" height="20">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="right_part">
+                                <div class="shoes_price shadow-lg">$<span style="color: #ff4e5b;"
+                                        class="shadow_lg">{{jewelry.price}}</span></div>
+                                <div class="shoes_price"><a style="color: white;" href="{{jewelry.jewelry_type.get_absolute_url}}">{{jewelry.jewelry_type}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
 </body>
+
 </html>
