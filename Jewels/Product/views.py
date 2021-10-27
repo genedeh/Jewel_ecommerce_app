@@ -20,6 +20,11 @@ def navbar(request):
     return render(request, 'base.html', {'jewelry_types': jewelry_types})
 
 
+def jewelry_view(request):
+    jewelries = Jewelry.objects.all().order_by("jewelry_type")
+    return render(request, 'jewelries.html', {'jewelries': jewelries})
+
+
 class JewelryTypeDetailView(DetailView):
     model = Jewelry_type
     template_name = 'Jewelry_Type_detail_page.html'
